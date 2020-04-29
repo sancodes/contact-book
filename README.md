@@ -1,7 +1,7 @@
 # Contact Book
 
 ## Overview
-It is a basic implementation of a contact book, where user's can store phone number, and email. 
+It is a basic implementation of a contact book, where user's can store phone number. 
 
 #### Details
 <details> 
