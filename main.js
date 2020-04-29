@@ -6,8 +6,6 @@ let contacts = [];
  * use the provided function to give the data an id
  * then add that data to the contacts list.
  * Then reset the form
- * *** hints:
- * *** push: resources/push.jpg
  */
 
 function addContact(event) {
