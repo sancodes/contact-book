@@ -101,9 +101,6 @@ function drawContacts() {
  * This function is called with a contact id
  * and will use the id to find and remove the 
  * contact by their id from the list of contacts
- * *** hints: 
- * *** findIndex: resources/findIndex.jpg
- * *** splice: resources/splice.jpg
  * @param {string} contactId 
  */
 function removeContact(contactId) {
