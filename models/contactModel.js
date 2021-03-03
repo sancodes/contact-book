@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 /*
  * Address Schema --> nested inside the Contact Schema
@@ -22,6 +22,6 @@ const contactSchema = new Schema({
 });
 
 /*
- * exporting contact collection
+ * exporting Contact collection
  */
-module.exports = mongoose.model('contact', contactSchema);
+module.exports = mongoose.model('Contact', contactSchema);
