@@ -4,21 +4,27 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+//connect to db file path
 require('./config/database');
+
+//connect to routes file path
 let indexRouter = require('./routes/index');
 let contactsRouter = require('./routes/contact');
 
 let app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//middlewares
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//server middlewares
 app.use('/', indexRouter);
 app.use('/contacts', contactsRouter);
 
