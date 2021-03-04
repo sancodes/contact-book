@@ -6,7 +6,7 @@ module.exports.getAllContacts = async (req, res, next) => {
    
     res.render('home', {
         title: 'Contacts Home Page',
-        contact: contactList
+        contacts: contactList
     });
 };
 
@@ -30,11 +30,13 @@ module.exports.addNewContact = async (req, res, next) => {
 };
 
 //GET  --> specific person's detail
-module.exports.getPersonDetails = async (req, res, next) => {
+module.exports.getPersonDetails = async(req, res, next) => {
     try {
         let personDetails = await ContactModel.findById(req.params.id);
-        console.log(personDetails);
-        res.render('person');
+        res.render('person', {
+            title: 'Detail Page',
+            personInfo: personDetails
+        });
     } catch (err) {
         console.log(err);
     }
