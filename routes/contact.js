@@ -12,7 +12,7 @@ router.get('/new', contactController.addNewContactForm);
 router.post('/new', contactController.addNewContact);
 
 //GET  --> specific person's detail
-router.get('/contacts/person/:id', contactController.getPersonDetails);
+router.get('/person/:id', contactController.getPersonDetails);
 
 //DELETE  --> person contact from db
 
