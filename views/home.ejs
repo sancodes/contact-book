@@ -4,6 +4,9 @@
     </h1>
     <p>Welcome to <%= title %>
     </p>
-    <p>THE CONTACTS HERE ARE <%= contact%>
+    <p>THE CONTACTS HERE ARE 
+        <% for(let item of contacts) {%>
+            <br/><%= item._id%>  <a href= "/contacts/person/<%=item._id%>"><%= item.firstName%>  <%= item.lastName%> </a> <%= item.phoneNumber%>
+        <%};%>
     </p>
 <%- include('./partials/footer') %>
