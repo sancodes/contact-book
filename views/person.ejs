@@ -1,0 +1,15 @@
+<%- include('./partials/header') %>
+    <h1><%=title%></h1>
+    <div> 
+        <p><%= personInfo.firstName%></p>
+        <p><%= personInfo.lastName%></p>
+        <p><%= personInfo.phoneNumber%></p>
+        <p><%= personInfo.email%></p>
+        <% for(let item of personInfo.address) {%>
+            <p><%= item.street%></p>
+            <p><%= item.state%></p>
+            <p><%= item.zip%></p>
+        <%};%>
+
+    </div>
+<%- include('./partials/footer')  %>
