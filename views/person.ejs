@@ -1,6 +1,7 @@
 <%- include('./partials/header') %>
     <h1><%=title%></h1>
     <div> 
+        <p> <%=personInfo._id%></p>
         <p><%= personInfo.firstName%></p>
         <p><%= personInfo.lastName%></p>
         <p><%= personInfo.phoneNumber%></p>
@@ -12,4 +13,9 @@
         <%};%>
 
     </div>
+    <a href="/"> Home </a>
+    <button><a href ="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
+    <button>Remove address</button>
+    <button>Delete Contact</button>
+    
 <%- include('./partials/footer')  %>
