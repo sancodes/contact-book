@@ -50,3 +50,32 @@ module.exports.getPersonDetails = async(req, res, next) => {
 //DELETE  --> person contact from db
 
 //UPDATE --> person 
+
+//GET --> add another address
+module.exports.getAdditionalAddressForm = async (req, res, next) => {
+    try {
+        let personID = await ContactModel.findById(req.params.id);
+        
+        res.render('addAddress', {
+            title: 'Add Additional Address',
+            id: personID._id
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+//POST --> add another address
+module.exports.addAdditionalAddress = async (req, res, next) => {
+    try {
+        let personDetails = await ContactModel.findById(req.params.id);
+
+        personDetails.address.push(req.body); //pushing it to the new address personDetails
+
+        await personDetails.save(); //since the personDetails has push the new address, need to save it to the db 
+        res.redirect(`/contacts/person/${personDetails._id}`);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
