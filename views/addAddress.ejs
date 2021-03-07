@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+<%= title%>
+<form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/person/<%=id%>/addaddress" method="POST">
+      
+      <p> Address: </p>
+      <br />
+      <div>
+        <label for="street-address"> Street: 
+        <input type="text" id="street-address" name="street">
+        </label>
+      </div>
+
+      <div>
+        <label for="state-address"> State: 
+        <input type="text" id="state-address" name="state">
+        </label>
+      </div>
+
+      <div>
+        <label for="zip-address"> Zip Code: 
+        <input type="number" id="zip-address" name="zip">
+        </label>
+      </div>
+
+      <!-- maybe bring this emergency contact to the database schema? add it as an boolean -->
+      <div class="d-flex space-between">
+        <label for="emergency-contact"> Emergency Contact: 
+        <input type="checkbox" id="emergency-contact" name="emergencyContact">
+        </label>
+      </div>
+
+      <hr>
+
+      <div class="d-flex space-between ">
+        <button type="submit">Submit</button>
+        <!-- hide this form when this button is clicked -->
+        <button class="btn-cancel" type="button" onclick="toggleAddContactForm()">Cancel</button>
+      </div>
+    </form> 
+    <a href="/contacts/person/<%=id%>/">Back</a>
+<%- include('./partials/footer')  %>
