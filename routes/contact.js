@@ -14,6 +14,12 @@ router.post('/new', contactController.addNewContact);
 //GET  --> specific person's detail
 router.get('/person/:id', contactController.getPersonDetails);
 
+//GET --> add additional address for person
+router.get('/person/:id/addaddress', contactController.getAdditionalAddressForm);
+
+//POST --> add additional address for person
+router.post('/person/:id/addaddress', contactController.addAdditionalAddress);
+
 //DELETE  --> person contact from db
 
 //UPDATE --> person 
