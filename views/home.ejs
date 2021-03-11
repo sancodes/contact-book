@@ -4,10 +4,15 @@
     </h1>
     <p>Welcome to <%= title %>
     </p>
-    <p>THE CONTACTS HERE ARE 
+    <p>THE CONTACTS HERE ARE
         <% for(let item of contacts) {%>
-            <br/><%= item._id%>  <a href= "/contacts/person/<%=item._id%>"><%= item.firstName%>  <%= item.lastName%> </a> <%= item.phoneNumber%>
-        <%};%>
+            <br />
+            <%= item._id%> <a href="/contacts/person/<%=item._id%>">
+                    <%= item.firstName%>
+                        <%= item.lastName%>
+                </a>
+                <%= item.phoneNumber%>
+                    <%};%>
     </p>
-    <a href="/contacts/new">Add Contact</a>
-<%- include('./partials/footer') %>
+    <button><a href="/contacts/new">Add Contact</a></button>
+    <%- include('./partials/footer') %>
