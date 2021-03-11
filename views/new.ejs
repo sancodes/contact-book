@@ -1,91 +1,73 @@
 <%- include('./partials/header') %>
 
-<form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/new" method="POST">
-      <!-- added phone and check box -->
-      <div>
-        <h4 class="mt-1 mb-1">
-          <i class="fa fa-fw fa-user"></i>
-          <span>Add Contact</span>
-        </h4>
-      </div>
+  <form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/new" method="POST">
+    <!-- added phone and check box -->
+    <div>
+      <h4 class="mt-1 mb-1">
+        <i class="fa fa-fw fa-user"></i>
+        <span>Add Contact</span>
+      </h4>
+    </div>
 
-      <div>
-        <label for="first-name">First Name:
+    <div>
+      <label for="first-name">First Name:
         <input type="text" name="firstName">
-      </div>
+    </div>
 
-      <div>
-        <label for="last-name">Last Name:
+    <div>
+      <label for="last-name">Last Name:
         <input type="text" id="last-name" name="lastName">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <div>
-        <label for="phone"> Phone: 
+    <div>
+      <label for="phone"> Phone:
         <input type="text" id="phone" name="phoneNumber" placeholder="111-111-111">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <div>
-        <label for="email"> Email: 
+    <div>
+      <label for="email"> Email:
         <input type="email" id="email" name="email">
-        </label>
-      </div>
-      <br/>
-      <p> Address: </p>
-      <br />
-      <div>
-        <label for="street-address"> Street: 
+      </label>
+    </div>
+    <br />
+    <p> Address: </p>
+    <br />
+    <div>
+      <label for="street-address"> Street:
         <input type="text" id="street-address" name="street">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <div>
-        <label for="state-address"> State: 
+    <div>
+      <label for="state-address"> State:
         <input type="text" id="state-address" name="state">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <div>
-        <label for="zip-address"> Zip Code: 
+    <div>
+      <label for="zip-address"> Zip Code:
         <input type="number" id="zip-address" name="zip">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <!-- doesnt work with multiple options, as the value will be array and the database validation gets confused -->
-      <!-- <div>
-        <label for="street-address"> Street: 
-        <input type="text" id="street-address" name="street">
-        </label>
-      </div>
 
-      <div>
-        <label for="state-address"> State: 
-        <input type="text" id="state-address" name="state">
-        </label>
-      </div>
-
-      <div>
-        <label for="zip-address"> Zip Code: 
-        <input type="number" id="zip-address" name="zip">
-        </label>
-      </div> -->
-
-      <!-- maybe bring this emergency contact to the database schema? add it as an boolean -->
-      <div class="d-flex space-between">
-        <label for="emergency-contact"> Emergency Contact: 
+    <!-- maybe bring this emergency contact to the database schema? add it as an boolean -->
+    <div class="d-flex space-between">
+      <label for="emergency-contact"> Emergency Contact:
         <input type="checkbox" id="emergency-contact" name="emergencyContact">
-        </label>
-      </div>
+      </label>
+    </div>
 
-      <hr>
+    <hr>
 
-      <div class="d-flex space-between ">
-        <button type="submit">Submit</button>
-        <!-- hide this form when this button is clicked -->
-        <button class="btn-cancel" type="button" onclick="toggleAddContactForm()">cancel</button>
-      </div>
-    </form>
+    <div class="d-flex space-between ">
+      <button type="submit">Submit</button>
+      <!-- hide this form when this button is clicked -->
+      <button class="btn-cancel" type="button" onclick="toggleAddContactForm()"><a href="/"> Cancel </a></button>
+    </div>
+  </form>
 
-    <a href="/"> Home </a>
-<%- include('./partials/footer')  %>
+
+  <%- include('./partials/footer') %>
