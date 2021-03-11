@@ -21,6 +21,7 @@ router.get('/person/:id/addaddress', contactController.getAdditionalAddressForm)
 router.post('/person/:id/addaddress', contactController.addAdditionalAddress);
 
 //DELETE  --> person contact from db
+router.delete('/person/:id/deleteperson', contactController.deletePerson);
 
 //UPDATE --> person 
 
