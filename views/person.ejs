@@ -4,42 +4,53 @@
     </h1>
     <div>
         <p>
-            <%=personInfo._id%>
+            Contact ID: <%=personInfo._id%>
         </p>
         <p>
-            <%= personInfo.firstName%>
+            First Name: <%= personInfo.firstName%>
         </p>
         <p>
-            <%= personInfo.lastName%>
+            Last Name: <%= personInfo.lastName%>
         </p>
         <p>
-            <%= personInfo.phoneNumber%>
+            Phone Number: <%= personInfo.phoneNumber%>
         </p>
-        <p>
-            <%= personInfo.email%>
-        </p>
-        <% for(let item of personInfo.address) {%>
+        <%if(personInfo.email){%>
             <p>
-                <%= item.street%>
+                Email: <%=personInfo.email%>
             </p>
-            <p>
-                <%= item.state%>
-            </p>
-            <p>
-                <%= item.zip%>
-            </p>
-            <%};%>
+            <%}%>
+
+                <% for(let item of personInfo.address) {%>
+                    <%if(item.street || item.state || item.zip){%>
+                        <h3>Address: </h3>
+                        <%}%>
+                            <%if(item.street){%>
+                                <p>
+                                    Street: <%= item.street%>
+                                </p>
+                                <%}%>
+                                    <%if(item.state){%>
+                                        <p>
+                                            State: <%= item.state%>
+                                        </p>
+                                        <%}%>
+                                            <%if(item.zip){%>
+                                                <p>
+                                                    Zip: <%= item.zip%>
+                                                </p>
+                                                <%}%>
+                                                    <%};%>
 
     </div>
-    <a href="/"> Home </a>
+    <button><a href="/"> Home </a></button>
     <button><a href="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
 
     <!-- passing in DELETE method through the enctype in method-override middleware -->
     <form action="/contacts/person/<%= personInfo._id%>/deleteperson" method="POST"
         enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_method" value="DELETE">
-        <button>Remove address</button>
+        <button>Delete Contact</button>
     </form>
-    <button>Delete Contact</button>
 
     <%- include('./partials/footer') %>
