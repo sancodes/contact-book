@@ -1,21 +1,45 @@
 <%- include('./partials/header') %>
-    <h1><%=title%></h1>
-    <div> 
-        <p> <%=personInfo._id%></p>
-        <p><%= personInfo.firstName%></p>
-        <p><%= personInfo.lastName%></p>
-        <p><%= personInfo.phoneNumber%></p>
-        <p><%= personInfo.email%></p>
+    <h1>
+        <%=title%>
+    </h1>
+    <div>
+        <p>
+            <%=personInfo._id%>
+        </p>
+        <p>
+            <%= personInfo.firstName%>
+        </p>
+        <p>
+            <%= personInfo.lastName%>
+        </p>
+        <p>
+            <%= personInfo.phoneNumber%>
+        </p>
+        <p>
+            <%= personInfo.email%>
+        </p>
         <% for(let item of personInfo.address) {%>
-            <p><%= item.street%></p>
-            <p><%= item.state%></p>
-            <p><%= item.zip%></p>
-        <%};%>
+            <p>
+                <%= item.street%>
+            </p>
+            <p>
+                <%= item.state%>
+            </p>
+            <p>
+                <%= item.zip%>
+            </p>
+            <%};%>
 
     </div>
     <a href="/"> Home </a>
-    <button><a href ="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
-    <button>Remove address</button>
+    <button><a href="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
+
+    <!-- passing in DELETE method through the enctype in method-override middleware -->
+    <form action="/contacts/person/<%= personInfo._id%>/deleteperson" method="POST"
+        enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="_method" value="DELETE">
+        <button>Remove address</button>
+    </form>
     <button>Delete Contact</button>
-    
-<%- include('./partials/footer')  %>
+
+    <%- include('./partials/footer') %>
