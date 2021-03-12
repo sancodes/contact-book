@@ -34,8 +34,8 @@
       <div class="d-flex space-between ">
         <button type="submit">Submit</button>
         <!-- hide this form when this button is clicked -->
-        <button class="btn-cancel" type="button" onclick="toggleAddContactForm()">Cancel</button>
+        <button class="btn-cancel" type="button" onclick="toggleAddContactForm()"><a href="/contacts/person/<%=id%>/">Cancel</a></button>
       </div>
     </form> 
-    <a href="/contacts/person/<%=id%>/">Back</a>
+    
 <%- include('./partials/footer')  %>
