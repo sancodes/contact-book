@@ -23,6 +23,10 @@ router.post('/person/:id/addaddress', contactController.addAdditionalAddress);
 //DELETE  --> person contact from db
 router.delete('/person/:id/deleteperson', contactController.deletePerson);
 
-//UPDATE --> person 
+//GET  --> person details form to update
+router.get('/person/:id/updatedetails', contactController.getUpdateContactDetails);
+
+//UPDATE --> person update
+router.put('/person/:id/updatedetails', contactController.updateContactDetails);
 
 module.exports = router;
