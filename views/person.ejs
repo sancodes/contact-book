@@ -15,36 +15,43 @@
         <p>
             Phone Number: <%= personInfo.phoneNumber%>
         </p>
+        
         <%if(personInfo.email){%>
             <p>
                 Email: <%=personInfo.email%>
             </p>
+        <%}%>
+
+        <% for(let item of personInfo.address) {%>
+            <%if(item.street || item.state || item.zip){%>
+                <h3>Address: </h3>
             <%}%>
-
-                <% for(let item of personInfo.address) {%>
-                    <%if(item.street || item.state || item.zip){%>
-                        <h3>Address: </h3>
-                        <%}%>
-                            <%if(item.street){%>
-                                <p>
-                                    Street: <%= item.street%>
-                                </p>
-                                <%}%>
-                                    <%if(item.state){%>
-                                        <p>
-                                            State: <%= item.state%>
-                                        </p>
-                                        <%}%>
-                                            <%if(item.zip){%>
-                                                <p>
-                                                    Zip: <%= item.zip%>
-                                                </p>
-                                                <%}%>
-                                                    <%};%>
-
+                    
+            <%if(item.street){%>
+                <p>
+                    Street: <%= item.street%>
+                </p>
+            <%}%>
+                            
+            <%if(item.state){%>
+                <p>
+                    State: <%= item.state%>
+                </p>
+            <%}%>
+                                    
+            <%if(item.zip){%>
+                <p>
+                    Zip: <%= item.zip%>
+                </p>
+            <%}%>
+        <%};%>
     </div>
+
     <button><a href="/"> Home </a></button>
+
     <button><a href="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
+
+    <button><a href="/contacts/person/<%= personInfo._id%>/updatedetails">Update Details</a></button>
 
     <!-- passing in DELETE method through the enctype in method-override middleware -->
     <form action="/contacts/person/<%= personInfo._id%>/deleteperson" method="POST"
@@ -52,5 +59,4 @@
         <input type="hidden" name="_method" value="DELETE">
         <button>Delete Contact</button>
     </form>
-
-    <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>
