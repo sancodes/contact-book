@@ -20,6 +20,9 @@ router.get('/person/:id/addaddress', contactController.getAdditionalAddressForm)
 //POST --> add additional address for person
 router.post('/person/:id/addaddress', contactController.addAdditionalAddress);
 
+//DELETE --> delete specific address form person's details page   (why? GET? well, just want to update in the same page thats why)
+router.delete('/person/:id/deleteaddress/:addressid', contactController.deleteSpecificAddress);
+
 //DELETE  --> person contact from db
 router.delete('/person/:id/deleteperson', contactController.deletePerson);
 
