@@ -21,16 +21,23 @@ module.exports.addNewContactForm = (req, res, next) => {
 //POST --> save contact in the database
 module.exports.addNewContact = async (req, res, next) => {
     try {
+        // since was getting [Object: null prototype] { .... } --> fix was JSON.parse(JSON.stringify(req.body))
+        let formInputs = JSON.parse(JSON.stringify(req.body));
+
         //apparently only pushes the contactSchema field leaves addressSchema field empty
-        let newContact = new ContactModel(req.body);
-        console.log('before address: ' + newContact);
-        //since addressSchema field is empty, I had to push the address field again
-        //but only push if the address is not empty(undefined) --for initial check
-        //this check stop from putting that empty fields in the address 
-        if (!(req.body.address === undefined)) {
-            newContact.address.push(req.body);
+        let newContact = new ContactModel();
+
+        newContact.firstName = formInputs.firstName;
+        newContact.lastName = formInputs.lastName;
+        newContact.phoneNumber = formInputs.phoneNumber;
+
+        if (formInputs.email) {
+            newContact.email = formInputs.email;
         }
-        console.log('after address: ' + newContact);
+
+        if (formInputs.street || formInputs.state || formInputs.zip) {
+            newContact.address.push({street:formInputs.street, state: formInputs.state, zip: formInputs.zip })
+        }
         await newContact.save();
         res.redirect('/contacts');
     } catch (err) {
