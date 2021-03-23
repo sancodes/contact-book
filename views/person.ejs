@@ -25,6 +25,11 @@
         <% for(let item of personInfo.address) {%>
             <%if(item.street || item.state || item.zip){%>
                 <h3>Address: </h3>
+                <form action="/contacts/person/<%=personInfo._id%>/deleteaddress/<%= item._id%>" method="POST"
+                    enctype="application/x-www-form-urlencoded">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button>Delete Adddress </button>
+                </form>
             <%}%>
                     
             <%if(item.street){%>
