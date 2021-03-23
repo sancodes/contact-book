@@ -98,6 +98,33 @@ module.exports.addAdditionalAddress = async (req, res, next) => {
     }
 }
 
+//DELETE --> specific address 
+module.exports.deleteSpecificAddress = async(req, res, next) => {
+    try {   //need to fix down here...
+        let specificAddress = req.params.addressid;
+        let personDocument = JSON.parse(JSON.stringify(req.params.id));
+
+        let document = await ContactModel.findById({ "_id": personDocument });
+        for (let i = 0; i < document.address.length; i++){
+            if (document.address[i]._id === specificAddress) {
+                document.address[i] = null;
+                await document.save();
+                break;
+            }
+        }
+        // let updatedModel = await ContactModel.updateOne({ "address._id": specificAddress }, { $set: {} });
+        // console.log(updatedModel);
+        // // console.log(contactBody);
+        // // let specificAddress = await contactBody.addressid;
+        // // console.log(specificAddress);
+        
+        res.redirect(`/contacts/`);
+
+    } catch(e) {
+        console.log(e);
+    }
+}
+
 //GET --> personDetails Update Form
 module.exports.getUpdateContactDetails = async(req, res, next) => {
     try {
@@ -117,7 +144,6 @@ module.exports.updateContactDetails = async (req, res, next) => {
         console.log('inside the controller!');
         let formInputs = JSON.parse(JSON.stringify(req.body));
         let actualPerson = await ContactModel.findById(formInputs._id);
-        console.log('x' + actualPerson);
 
         //maybe boolean to keep track if there was any changes or not? 
         //maybe i can even add counter to see how many items were changed;
@@ -146,15 +172,30 @@ module.exports.updateContactDetails = async (req, res, next) => {
                         actualPerson.address[i].street = formInputs.street;  //now the part that is not working is if there's only one address, then the req.body.street[i] will only take the first lettter. since the req.body.street at that point will not have the address as an list so that's why.
                     }
                     if (actualPerson.address[i].state !== formInputs.state) {
-                        console.log(req.body.state[i]);
                         actualPerson.address[i].state = formInputs.state;
                     }
                     //gotta make sure they actually enter correct format zipcode
                     if (actualPerson.address[i].zip !== formInputs.zip) {
+
                         actualPerson.address[i].zip = formInputs.zip;
+                        //removing the field right away if null, else, change with the new input
+                        // if (formInputs.zip === null) {
+                        //     delete actualPerson.address[i]['zip'];
+                        // } else {
+                        //     actualPerson.address[i].zip = formInputs.zip;
+                        // }
                     }
                 }
-            };
+            }
+
+            // //double check to see if there are any address field with id only
+            // for (let i = 0; i < actualPerson.address.length; i++) {
+            //     //removing the id from deleted contact address, if everything is null dont want to leave the id hanging and take upspace
+            //     if (actualPerson.address[i].street === undefined && actualPerson.address[i].street === undefined && actualPerson.address[i].street === undefined) {
+            //         actualPerson.address[i].pop();
+            //     }
+            // }
+
         }
         await actualPerson.save();
         res.redirect(`/contacts/person/${actualPerson._id}`);
