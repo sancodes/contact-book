@@ -115,43 +115,43 @@ module.exports.getUpdateContactDetails = async(req, res, next) => {
 module.exports.updateContactDetails = async (req, res, next) => {
     try {
         console.log('inside the controller!');
-        console.log(req.body);  //i need to catch the data and compare it with my stored data and change it
-        let actualPerson = await ContactModel.findById(req.body._id);
-        // console.log(actualPerson);
+        let formInputs = JSON.parse(JSON.stringify(req.body));
+        let actualPerson = await ContactModel.findById(formInputs._id);
+        console.log('x' + actualPerson);
 
         //maybe boolean to keep track if there was any changes or not? 
         //maybe i can even add counter to see how many items were changed;
         // await actualPerson.save();
-        if (!(req.body === undefined)) {
-            if (req.body.firstName !== actualPerson.firstName) {
-                actualPerson.firstName = req.body.firstName;
+        if (!(formInputs === undefined)) {
+            if (formInputs.firstName !== actualPerson.firstName) {
+                actualPerson.firstName = formInputs.firstName;
             }
-            if (req.body.lastName !== actualPerson.lastName) {
-                actualPerson.lastName = req.body.lastName;
+            if (formInputs.lastName !== actualPerson.lastName) {
+                actualPerson.lastName = formInputs.lastName;
             }
-            if (req.body.phoneNumber !== actualPerson.phoneNumber) {
-                actualPerson.phoneNumber = req.body.phoneNumber;
+            if (formInputs.phoneNumber !== actualPerson.phoneNumber) {
+                actualPerson.phoneNumber = formInputs.phoneNumber;
             }
             //if the email exists in the actual db then we can worry about changing, if not it wont even show in the update form field
             if (actualPerson.email) {
-                if (req.body.email !== actualPerson.email) {
-                    actualPerson.email = req.body.email;
+                if (formInputs.email !== actualPerson.email) {
+                    actualPerson.email = formInputs.email;
                 }
             }
             //if the address exists in the actual db then we can worry about changing, if not it wont even show in the update form field
             //so the update form passes in a list of street, state and zip, not like a object/dictionary
-            if (!(actualPerson.address === undefined)) {
+            if (!(actualPerson.address == undefined)) {
                 for (let i = 0; i < actualPerson.address.length; i++) {
-                    if (actualPerson.address[i].street !== req.body.street[i]) {
-                        actualPerson.address[i].street = req.body.street[i];  //now the part that is not working is if there's only one address, then the req.body.street[i] will only take the first lettter. since the req.body.street at that point will not have the address as an list so that's why.
+                    if (actualPerson.address[i].street !== formInputs.street) {
+                        actualPerson.address[i].street = formInputs.street;  //now the part that is not working is if there's only one address, then the req.body.street[i] will only take the first lettter. since the req.body.street at that point will not have the address as an list so that's why.
                     }
-                    if (actualPerson.address[i].state !== req.body.state[i]) {
+                    if (actualPerson.address[i].state !== formInputs.state) {
                         console.log(req.body.state[i]);
-                        actualPerson.address[i].state = req.body.state[i];
+                        actualPerson.address[i].state = formInputs.state;
                     }
                     //gotta make sure they actually enter correct format zipcode
-                    if (actualPerson.address[i].zip !== req.body.zip[i]) {
-                        actualPerson.address[i].zip = req.body.zip[i];
+                    if (actualPerson.address[i].zip !== formInputs.zip) {
+                        actualPerson.address[i].zip = formInputs.zip;
                     }
                 }
             };
