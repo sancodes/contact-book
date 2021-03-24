@@ -20,7 +20,7 @@ Application that allows you to save your contacts
 <p> Contact to Address have 1:M relationship. Therefore, Address Schema is nested inside Contact Schema </p> <br>
 <img src="/images/schemaDesign.png" align="center">
 <br>
-
+<br>
 <li> Backend Design </li>
 <ul>
 <li> Follows MVC architecture
@@ -28,16 +28,19 @@ Application that allows you to save your contacts
 <ul>
 <li> Schema structure is nested and will save and retrieve data from mongoDB </li>
 </ul>
+<br>
 <li> <strong>View</strong>: EJS Template
 <ul>
 <li> Data is rendered through EJS and basic styling is done through CSS </li>
 </ul>
+<br>
 <li> <strong>Controller</strong>: Express.js
 <ul>
 <li> Controller is responsible for retrieving and submiting HTTP requests </li>
 <li> Queries are done here which validates and checks data before retrieving and saving it to the database </li>
 </ul>
 </ul>
+<br>
 <img src="/images/backendDesign.png" align="center">
 </ul>
 <h4>  Application Functionality </h4>
