@@ -18,7 +18,7 @@ Application that allows you to save your contacts
 <ul>
 <li> Schema Design </li>
 <p> Contact to Address have 1:M relationship. Therefore, Address Schema is nested inside Contact Schema </p> <br>
-<img src="/image/schemaDesign.png" align="center">
+<img src="/images/schemaDesign.png" align="center">
 <br>
 
 <li> Backend Design </li>
@@ -38,11 +38,11 @@ Application that allows you to save your contacts
 <li> Queries are done here which validates and checks data before retrieving and saving it to the database </li>
 </ul>
 </ul>
-<img src="/image/backendDesign.png" align="center">
+<img src="/images/backendDesign.png" align="center">
 </ul>
 <h4>  Application Functionality </h4>
 <ul> 
-    <li> You should be able to save contacts </li>
+    <li> User should be able to save contacts </li>
 </ul>
 </div>
 <div id="tech">
@@ -57,18 +57,23 @@ Application that allows you to save your contacts
 </div>
 <div id="setup">
 <h3> Setup </h3>
-<p>
+
 clone the repo to your desktop
+
 ```
 npm install
 ```
-then 
+
+then
+
 ```
 npm run devstart
 ```
-open up your browser to run it in 
+
+open up your browser to run it in
+
 ```
 localhost:3000/
 ```
-</p>
+
 </div>
