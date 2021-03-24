@@ -102,23 +102,14 @@ module.exports.addAdditionalAddress = async (req, res, next) => {
 module.exports.deleteSpecificAddress = async(req, res, next) => {
     try {   //need to fix down here...
         let specificAddress = req.params.addressid;
-        let personDocument = JSON.parse(JSON.stringify(req.params.id));
+        let personDocument = req.params.id;
+        console.log('address' + specificAddress);
+        //so far it gets the specific nested array items in the documents. 
+        // let specifiedAddressDetails = await ContactModel.find({ "_id": personDocument }, { address: { $elemMatch: { "_id": specificAddress } } });
 
-        let document = await ContactModel.findById({ "_id": personDocument });
-        for (let i = 0; i < document.address.length; i++){
-            if (document.address[i]._id === specificAddress) {
-                document.address[i] = null;
-                await document.save();
-                break;
-            }
-        }
-        // let updatedModel = await ContactModel.updateOne({ "address._id": specificAddress }, { $set: {} });
-        // console.log(updatedModel);
-        // // console.log(contactBody);
-        // // let specificAddress = await contactBody.addressid;
-        // // console.log(specificAddress);
-        
-        res.redirect(`/contacts/`);
+        //so using monodb instead of mongoose to delete specific nested array subdocuments
+        await ContactModel.updateMany({}, { $pull: { address: { "_id": specificAddress } } }, { multi: true }).exec();
+        res.redirect(`/contacts/person/${personDocument}`);
 
     } catch(e) {
         console.log(e);
