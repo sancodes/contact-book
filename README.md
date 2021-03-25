@@ -43,19 +43,28 @@ Application that allows you to save your contacts
 <br>
 <img src="/images/backendDesign.png" align="center">
 </ul>
+<br>
+<br>
+<li> Application Prototype </li>
+<p> Made a dummy running application through Figma. Chose colors, button functionalities and page display </p> <br>
+<img src="/images/schemaDesign.png" align="center">
+<br>
+<br>
 <h4>  Application Functionality </h4>
 <ul> 
     <li> User should be able to save contacts </li>
 </ul>
 </div>
 <div id="tech">
-<h3> Technologies Used </h3>
+<h3> Tools Used </h3>
 <ul>
     <li> Node.js </li>
     <li> Express.js </li>
     <li> MongoDB </li>
     <li> Ejs </li>
     <li> CSS </li>
+    <li> Draw.io </li>
+    <li> Figma </li>
 </ul>
 </div>
 <div id="setup">
