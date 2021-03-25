@@ -1,8 +1,48 @@
+:root {
+  --default-font-size: 62.5%;
+  --background-color: rgba(228, 220, 220, 1);
+  --font-family: "Swanky and Moo Moo";
+  --button-border: 1px solid black;
+  --negative-button-color: rgba(188, 119, 119, 1);
+  --button-color: rgba(214, 199, 199, 1);
+  --input-field-color: rgba(214, 199, 199, 1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--default-font-size);
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  letter-spacing: 0.1rem;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.button,
+.neg-button {
+  background-color: var(--button-color);
+  padding: 0.4rem;
+  border-radius: 4.2rem;
+}
+.neg-button {
+  background-color: var(--negative-button-color);
+}
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+a:hover {
+  color: aliceblue;
+  font-size: 1.3rem;
+  transition: 0.2s;
+}
+
+.input-field {
+  background-color: var(--input-field-color);
 }
