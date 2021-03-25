@@ -14,24 +14,24 @@
     <p>Contact ID: <%=personInfo._id%></p>
     <div>
         <label for="first-name">First Name:
-            <input type="text" id="first-name" name="firstName" value="<%=personInfo.firstName%>">
+            <input class="input-field" type="text" id="first-name" name="firstName" value="<%=personInfo.firstName%>">
     </div>
 
     <div>
         <label for="last-name">Last Name:
-            <input type="text" id="last-name" name="lastName" value="<%=personInfo.lastName%>">
+            <input class="input-field" type="text" id="last-name" name="lastName" value="<%=personInfo.lastName%>">
         </label>
     </div>
 
     <div>
         <label for="phone"> Phone:
-            <input type="text" id="phone" name="phoneNumber" value="<%=personInfo.phoneNumber%>">
+            <input class="input-field" type="text" id="phone" name="phoneNumber" value="<%=personInfo.phoneNumber%>">
         </label>
     </div>
     <%if(personInfo.email){%>
         <div>
             <label for="email"> Email:
-                <input type="email" id="email" name="email" value="<%=personInfo.email%>">
+                <input class="input-field" type="email" id="email" name="email" value="<%=personInfo.email%>">
             </label>
         </div>
     <%}%>
@@ -44,7 +44,7 @@
         <%if(item.street){%>
             <div>
                 <label for="street-address"> Street:
-                    <input type="text" id="street-address" name="street" value="<%=item.street%>">
+                    <input class="input-field" type="text" id="street-address" name="street" value="<%=item.street%>">
                 </label>
             </div>
         <%}%>
@@ -52,7 +52,7 @@
         <%if(item.state){%>
             <div>
                 <label for="state-address"> State:
-                    <input type="text" id="state-address" name="state" value="<%=item.state%>">
+                    <input class="input-field" type="text" id="state-address" name="state" value="<%=item.state%>">
                 </label>
             </div>
         <%}%>
@@ -60,7 +60,7 @@
         <%if(item.zip){%>
             <div>
                 <label for="zip-address"> Zip Code:
-                    <input type="number" id="zip-address" name="zip" value="<%=item.zip%>">
+                    <input class="input-field" type="number" id="zip-address" name="zip" value="<%=item.zip%>">
                 </label>
             </div>
         <%}%>
@@ -69,9 +69,9 @@
    
 
     <div class="d-flex space-between ">
-      <button type="submit">Submit</button>
+      <button class="button" type="submit">Submit</button>
       <!-- hide this form when this button is clicked -->
-      <button class="btn-cancel" type="button" onclick="toggleAddContactForm()"><a href="/contacts/person/<%=personInfo._id%>"> Cancel </a></button>
+      <button class="neg-button" type="button" onclick="toggleAddContactForm()"><a href="/contacts/person/<%=personInfo._id%>"> Cancel </a></button>
     </div>
   </form>
 
