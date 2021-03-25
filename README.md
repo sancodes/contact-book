@@ -46,8 +46,8 @@ Application that allows you to save your contacts
 <br>
 <br>
 <li> Application Prototype </li>
-<p> Made a dummy running application through Figma. Chose colors, button functionalities and page display </p> <br>
-<img src="/images/schemaDesign.png" align="center">
+<p> Used Figma to work with UI. It made choosing colors, working with button functionalities and page display easier </p> <br>
+<img src="/images/prototype.png" align="center">
 <br>
 <br>
 <h4>  Application Functionality </h4>
