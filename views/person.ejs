@@ -28,7 +28,7 @@
                 <form action="/contacts/person/<%=personInfo._id%>/deleteaddress/<%= item._id%>" method="POST"
                     enctype="application/x-www-form-urlencoded">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button>Delete Adddress </button>
+                    <button class="neg-button">Delete Adddress </button>
                 </form>
             <%}%>
                     
@@ -52,16 +52,16 @@
         <%};%>
     </div>
 
-    <button><a href="/"> Home </a></button>
+    <button class="button"><a href="/"> Home </a></button>
 
-    <button><a href="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
+    <button class="button"><a href="/contacts/person/<%= personInfo._id%>/addaddress">Add address</a></button>
 
-    <button><a href="/contacts/person/<%= personInfo._id%>/updatedetails">Update Details</a></button>
+    <button class="button"><a href="/contacts/person/<%= personInfo._id%>/updatedetails">Update Details</a></button>
 
     <!-- passing in DELETE method through the enctype in method-override middleware -->
     <form action="/contacts/person/<%= personInfo._id%>/deleteperson" method="POST"
         enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_method" value="DELETE">
-        <button>Delete Contact</button>
+        <button class="neg-button">Delete Contact</button>
     </form>
 <%- include('./partials/footer') %>
