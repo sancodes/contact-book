@@ -1,41 +1,31 @@
 <%- include('./partials/header') %>
 <%= title%>
-<form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/person/<%=id%>/addaddress" method="POST">
-      
-      <p> Address: </p>
-      <br />
-      <div>
-        <label for="street-address"> Street: 
-        <input class="input-field" type="text" id="street-address" name="street">
-        </label>
-      </div>
+  <form action="/contacts/person/<%=id%>/addaddress" method="POST"> 
 
-      <div>
-        <label for="state-address"> State: 
-        <input class="input-field" type="text" id="state-address" name="state">
-        </label>
-      </div>
+    <br />
+    <div>
+      <label for="street-address"> Street: 
+      <input class="input-field" type="text" id="street-address" name="street">
+      </label>
+    </div>
+    <br>
 
-      <div>
-        <label for="zip-address"> Zip Code: 
-        <input class="input-field" type="number" id="zip-address" name="zip">
-        </label>
-      </div>
+    <div>
+      <label for="state-address"> State: 
+      <input class="input-field" type="text" id="state-address" name="state">
+      </label>
+    </div>
+    <br>
 
-      <!-- maybe bring this emergency contact to the database schema? add it as an boolean -->
-      <div class="d-flex space-between">
-        <label for="emergency-contact"> Emergency Contact: 
-        <input class="input-field" type="checkbox" id="emergency-contact" name="emergencyContact">
-        </label>
-      </div>
+    <div>
+      <label for="zip-address"> Zip Code: 
+      <input class="input-field" type="number" id="zip-address" name="zip">
+      </label>
+    </div>
+    <br>
 
-      <hr>
-
-      <div class="d-flex space-between ">
-        <button class="button" type="submit">Submit</button>
-        <!-- hide this form when this button is clicked -->
-        <button class="neg-button" type="button" onclick="toggleAddContactForm()"><a href="/contacts/person/<%=id%>/">Cancel</a></button>
-      </div>
-    </form> 
+    <button class="button">Submit</button>
+    <button class="neg-button"><a href="/contacts/person/<%=id%>/">Cancel</a></button>
+  </form> 
     
 <%- include('./partials/footer')  %>

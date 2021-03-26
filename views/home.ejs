@@ -2,17 +2,12 @@
     <h1>
         <%= title %>
     </h1>
-    <p>Welcome to <%= title %>
-    </p>
-    <p>THE CONTACTS HERE ARE
-        <% for(let item of contacts) {%>
-            <br />
-            <%= item._id%> <a href="/contacts/person/<%=item._id%>">
-                    <%= item.firstName%>
-                        <%= item.lastName%>
-                </a>
-                <%= item.phoneNumber%>
-                    <%};%>
-    </p>
+    
+    <% for(let item of contacts) {%>
+        <br>
+        <a href="/contacts/person/<%=item._id%>"><%= item.firstName%> <%= item.lastName%></a>  <%= item.phoneNumber%>
+        <br>
+    <%};%>
+    <br>
     <button class="button"><a href="/contacts/new">Add Contact</a></button>
-    <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

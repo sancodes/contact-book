@@ -1,66 +1,53 @@
 <%- include('./partials/header') %>
 
-  <form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/new" method="POST">
-    <!-- added phone and check box -->
-    <div>
-      <h4 class="mt-1 mb-1">
-        <i class="fa fa-fw fa-user"></i>
-        <span>Add Contact</span>
-      </h4>
-    </div>
+  <form action="/contacts/new" method="POST">
 
+    <h1>Add Contact</h1>
+    <br>
     <div>
       <label for="first-name">First Name:
         <input class="input-field" type="text" name="firstName">
     </div>
-
+    <br>
     <div>
       <label for="last-name">Last Name:
         <input class="input-field" type="text" id="last-name" name="lastName">
       </label>
     </div>
-
+    <br>
     <div>
       <label for="phone"> Phone:
         <input class="input-field" type="text" id="phone" name="phoneNumber" placeholder="111-111-111">
       </label>
     </div>
-
+    <br>
     <div>
       <label for="email"> Email:
         <input class="input-field" type="email" id="email" name="email">
       </label>
     </div>
     <br />
-    <p> Address: </p>
+    <br>
+    <h4> Address: </h4>
     <br />
     <div>
       <label for="street-address"> Street:
         <input class="input-field" type="text" id="street-address" name="street">
       </label>
     </div>
-
+    <br>
     <div>
       <label for="state-address"> State:
         <input class="input-field" type="text" id="state-address" name="state">
       </label>
     </div>
-
+    <br>
     <div>
       <label for="zip-address"> Zip Code:
         <input class="input-field" type="number" id="zip-address" name="zip">
       </label>
     </div>
-
-
-    <!-- maybe bring this emergency contact to the database schema? add it as an boolean -->
-    <div class="d-flex space-between">
-      <label for="emergency-contact"> Emergency Contact:
-        <input type="checkbox" id="emergency-contact" name="emergencyContact">
-      </label>
-    </div>
-
-    <hr>
+    <br>
 
     <div class="d-flex space-between ">
       <button class="button" type="submit">Submit</button>
@@ -69,5 +56,4 @@
     </div>
   </form>
 
-
-  <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

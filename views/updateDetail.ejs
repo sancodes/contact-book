@@ -1,79 +1,80 @@
 <%- include('./partials/header') %>
 
-<h1>
-    <%=title%>
-</h1>
-<form class="card mt-1 mb-1" id="new-contact-form" action="/contacts/person/<%= personInfo._id%>/updatedetails" method="POST" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" name="_method" value="PUT" />
-    
-
-    <!-- 'hide' works compared to 'disabled' as 'disabled wont really allow this form to talk to database -->
-    <!-- to pass in the id to the db but not render in the page -->
-    <input type="hidden" name="_id" value="<%=personInfo._id%>">
-
-    <p>Contact ID: <%=personInfo._id%></p>
-    <div>
-        <label for="first-name">First Name:
-            <input class="input-field" type="text" id="first-name" name="firstName" value="<%=personInfo.firstName%>">
-    </div>
-
-    <div>
-        <label for="last-name">Last Name:
-            <input class="input-field" type="text" id="last-name" name="lastName" value="<%=personInfo.lastName%>">
-        </label>
-    </div>
-
-    <div>
-        <label for="phone"> Phone:
-            <input class="input-field" type="text" id="phone" name="phoneNumber" value="<%=personInfo.phoneNumber%>">
-        </label>
-    </div>
-    <%if(personInfo.email){%>
+    <h1>
+        <%=title%>
+    </h1>
+    <form action="/contacts/person/<%= personInfo._id%>/updatedetails" method="POST" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="_method" value="PUT" />
+        
+        <br>
+        <!-- 'hide' works compared to 'disabled' as 'disabled wont really allow this form to talk to database -->
+        <!-- to pass in the id to the db but not render in the page -->
+        <input type="hidden" name="_id" value="<%=personInfo._id%>">
+        <br>
+        <p>Contact ID: <%=personInfo._id%></p>
+        <br>
         <div>
-            <label for="email"> Email:
-                <input class="input-field" type="email" id="email" name="email" value="<%=personInfo.email%>">
+            <label for="first-name">First Name:
+                <input class="input-field" type="text" id="first-name" name="firstName" value="<%=personInfo.firstName%>">
+        </div>
+        <br>
+        <div>
+            <label for="last-name">Last Name:
+                <input class="input-field" type="text" id="last-name" name="lastName" value="<%=personInfo.lastName%>">
             </label>
         </div>
-    <%}%>
+        <br>
+        <div>
+            <label for="phone"> Phone:
+                <input class="input-field" type="text" id="phone" name="phoneNumber" value="<%=personInfo.phoneNumber%>">
+            </label>
+        </div>
+        <br>
+        <%if(personInfo.email){%>
+            <div>
+                <label for="email"> Email:
+                    <input class="input-field" type="email" id="email" name="email" value="<%=personInfo.email%>">
+                </label>
+            </div>
+        <%}%>
+        
+        <br>
+        <% for(let item of personInfo.address) {%>
+            <%if(item.street || item.state || item.zip){%>
+                <h3>Address: </h3>
+            <%}%>
+        <br>               
+            <%if(item.street){%>
+                <div>
+                    <label for="street-address"> Street:
+                        <input class="input-field" type="text" id="street-address" name="street" value="<%=item.street%>">
+                    </label>
+                </div>
+            <%}%>
+        <br>                  
+            <%if(item.state){%>
+                <div>
+                    <label for="state-address"> State:
+                        <input class="input-field" type="text" id="state-address" name="state" value="<%=item.state%>">
+                    </label>
+                </div>
+            <%}%>
+        <br>                               
+            <%if(item.zip){%>
+                <div>
+                    <label for="zip-address"> Zip Code:
+                        <input class="input-field" type="number" id="zip-address" name="zip" value="<%=item.zip%>">
+                    </label>
+                </div>
+            <%}%>
+        <%};%>
+
     
-    <% for(let item of personInfo.address) {%>
-        <%if(item.street || item.state || item.zip){%>
-            <h3>Address: </h3>
-        <%}%>
-                
-        <%if(item.street){%>
-            <div>
-                <label for="street-address"> Street:
-                    <input class="input-field" type="text" id="street-address" name="street" value="<%=item.street%>">
-                </label>
-            </div>
-        <%}%>
-                      
-        <%if(item.state){%>
-            <div>
-                <label for="state-address"> State:
-                    <input class="input-field" type="text" id="state-address" name="state" value="<%=item.state%>">
-                </label>
-            </div>
-        <%}%>
-                                
-        <%if(item.zip){%>
-            <div>
-                <label for="zip-address"> Zip Code:
-                    <input class="input-field" type="number" id="zip-address" name="zip" value="<%=item.zip%>">
-                </label>
-            </div>
-        <%}%>
-    <%};%>
+        <br>
+        <button class="button">Submit</button>
 
-   
-
-    <div class="d-flex space-between ">
-      <button class="button" type="submit">Submit</button>
-      <!-- hide this form when this button is clicked -->
-      <button class="neg-button" type="button" onclick="toggleAddContactForm()"><a href="/contacts/person/<%=personInfo._id%>"> Cancel </a></button>
-    </div>
-  </form>
+        <button class="neg-button"><a href="/contacts/person/<%=personInfo._id%>"> Cancel </a></button>
+    </form>
 
 
   <%- include('./partials/footer') %>
