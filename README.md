@@ -4,7 +4,7 @@
 <ul>
 <li> <a href="#gm"> General Information </a> </li>
 <li> <a href="#tech"> Technologies </a> </li>
-<li> <a href="#setup"> Setup </a> </li>
+
 
 </ul>
 
@@ -67,25 +67,5 @@ Application that allows you to save your contacts
     <li> Figma </li>
 </ul>
 </div>
-<div id="setup">
-<h3> Setup </h3>
 
-clone the repo to your desktop
 
-```
-npm install
-```
-
-then
-
-```
-npm run devstart
-```
-
-open up your browser to run it in
-
-```
-localhost:3000/
-```
-
-</div>
