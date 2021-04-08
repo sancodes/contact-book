@@ -4,7 +4,7 @@
 <ul>
 <li> <a href="#gm"> General Information </a> </li>
 <li> <a href="#tech"> Technologies </a> </li>
-
+<li> <a href="#deployment"> Deployment </a> </li>
 
 </ul>
 
@@ -66,6 +66,10 @@ Application that allows you to save your contacts
     <li> Draw.io </li>
     <li> Figma </li>
 </ul>
+    
+<div id="deployment">
+<h3> Deployed using:  </h3>
+    <p> Heroku</p>
 </div>
 
 
